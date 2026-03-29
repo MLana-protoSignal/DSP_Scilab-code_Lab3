@@ -1,0 +1,18 @@
+n = -10:10;
+x = zeros(1, length(n));
+offset = 10 + 1;
+x(offset - 1) = 1;
+x(offset) = 1;
+x(offset + 1) = 1;
+x(offset + 2) = 1;
+x(offset + 3) = 1/2;
+x(offset + 4) = 1/2;
+n_xneg = -n;
+[n_xneg, idx] = gsort(n_xneg, 'g', 'i');
+x_neg = x(idx);
+x_e = (x + x_neg) / 2;
+clf();
+plot2d3(n, x_e);
+title("Tin hieu x_e(n)");
+xlabel("n"); 
+ylabel("x_e(n)");
